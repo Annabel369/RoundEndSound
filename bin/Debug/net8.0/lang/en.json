@@ -1,0 +1,12 @@
+﻿{
+  "menu.Title": "{green}[Round End Sound] » {default}Select the menu item",
+  "menu.LastPlayedSong": "Last played song - {green}{0}",
+  "menu.ListenLastPlayedSong": "Listen last played track",
+  "chat.Prefix": "{green}[Round End Sound] » ",
+  "chat.Settings": "{default}ㅤㅤㅤㅤㅤㅤ» Music settings: - {green}!res",
+  "chat.PlayedSong": "{default}Now playing this song: {green}{0}",
+  "chat.Enabled": "{green}[Enabled]",
+  "chat.Disabled": "{red}[Disabled]",
+  "SoundEnabled": "Play sound at the end round",
+  "ChatEnabled": "Info about song to chat"
+}
