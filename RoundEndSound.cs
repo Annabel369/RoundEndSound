@@ -9,6 +9,7 @@ using RoundEndSound.Models;
 using RoundEndSound.Repository;
 using RoundEndSound.Services;
 using static RoundEndSound.Repository.QueryConstants;
+using RoundEndSound.Config;
 
 namespace RoundEndSound
 {
@@ -40,6 +41,8 @@ namespace RoundEndSound
         private readonly Dictionary<string, ResPlayer?> _playersForSave = [];
 
         private const char NewLine = '\u2029';
+
+        private bool shouldShowImage = false;
 
         public override void Load(bool hotReload)
         {
@@ -231,16 +234,136 @@ namespace RoundEndSound
             return HookResult.Continue;
         }
 
+        public class MusicList
+        {
+            public string Name { get; set; } = "Amarillo";
+            public string Music { get; set; } = "sounds/marius_music/amarillo.vsnd_c";
+            public string Gif { get; set; } = "https://c.tenor.com/nEu74vu_sT4AAAAC/tenor.gif";
+        }
+
+        public List<MusicList> music_list { get; set; } = new()
+        {
+             new MusicList { Name = "Amarillo", Music = "sounds/marius_music/amarillo.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/12/baby-yoda-02.gif" },
+             new MusicList { Name = "marius2", Music = "sounds/marius_music/aaaaaadao.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2021/10/gif-naruto-fofo-03.gif" },
+             new MusicList { Name = "marius3", Music = "sounds/marius_music/actafool.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2021/10/gif-naruto-fofo-15.gif" },
+             new MusicList { Name = "marius4", Music = "sounds/marius_music/addicted.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2021/10/gif-naruto-fofo-19.gif" },
+             new MusicList { Name = "marius5", Music = "sounds/marius_music/adin_ross_she_make_it_clap.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/eu-te-amo.gif" },
+             new MusicList { Name = "marius6", Music = "sounds/marius_music/albertnbn_zoro.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/deadpool-08.gif" },
+             //new MusicList { Name = "marius7", Music = "path5", Gif = "link5" },
+             //new MusicList { Name = "marius8", Music = "path5", Gif = "link5" },
+             //new MusicList { Name = "marius9", Music = "path5", Gif = "link5" },
+             new MusicList { Name = "marius10", Music = "sounds/marius_music/damy.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/pets-comendo-bobagem.gif" },
+             //new MusicList { Name = "marius11", Music = "path5", Gif = "link5" },
+             new MusicList { Name = "marius12", Music = "sounds/marius_music/habibi.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/pet-bebendo-agua-da-privada.gif" },
+             new MusicList { Name = "marius13", Music = "sounds/marius_music/marius.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/gato-legal-fofo-07.gif" },
+             new MusicList { Name = "marius14", Music = "sounds/marius_music/owneri.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/crianca-assustadora-07.gif" },
+             //new MusicList { Name = "marius15", Music = "path5", Gif = "link5" },
+             new MusicList { Name = "marius16", Music = "sounds/marius_music/saize.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/crianca-assustadora-06.gif" },
+             new MusicList { Name = "marius17", Music = "sounds/marius_music/sava.vsnd_c", Gif = "https://gifman.net/wp-content/uploads/2019/06/crianca-assustadora-04.gif" }
+        };
+
         private void PlaySound(ResPlayer? resPlayer, Sound sound)
         {
             CCSPlayerController? player = Utils.PlayerUtils.GetPlayerFromSteamId(resPlayer!.SteamId);
+
+            var thirdItem = music_list[2];
             
             Server.NextFrame(() =>
             {   
-                if (resPlayer.SoundEnabled)
+                
+                    //Console.WriteLine($"Music: {item.Music}, Gif: {item.Gif}");
+                    if (resPlayer.SoundEnabled)
                     player?.ExecuteClientCommand($"play {sound.Path}");
-                if (resPlayer.ChatEnabled)
-                    player?.PrintToChat($"{Localizer["chat.Prefix"]}{Localizer["chat.PlayedSong", sound.Name]}{NewLine}{Localizer["chat.Settings"]}");
+
+                    if (resPlayer.ChatEnabled)
+                    {
+                        player?.PrintToChat($"{Localizer["chat.Prefix"]}{Localizer["chat.PlayedSong", sound.Name]}{NewLine}{Localizer["chat.Settings"]}");
+
+                        
+
+                        if (sound.Name=="Amarillo")
+                        {
+                            thirdItem = music_list[0];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius2")
+                        {
+                            thirdItem = music_list[1];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius3")
+                        {
+                            thirdItem = music_list[2];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius4")
+                        {
+                            thirdItem = music_list[3];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius5")
+                        {
+                            thirdItem = music_list[4];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius6")
+                        {
+                            thirdItem = music_list[5];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius10")
+                        {
+                            thirdItem = music_list[6];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius12")
+                        {
+                            thirdItem = music_list[7];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius13")
+                        {
+                            thirdItem = music_list[8];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius14")
+                        {
+                            thirdItem = music_list[9];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius16")
+                        {
+                            thirdItem = music_list[10];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        if (sound.Name=="marius17")
+                        {
+                            thirdItem = music_list[11];
+                            Globals.SiteImage = thirdItem.Gif;
+                        }
+
+                        RegisterListener<Listeners.OnTick>(OnTick);
+                        
+                        shouldShowImage = true;
+                        
+                        AddTimer(10, () =>
+                        {
+                            shouldShowImage = false;
+                        });
+                    }
+                
+                
             });
         }
         
@@ -252,6 +375,22 @@ namespace RoundEndSound
                 player.PrintToChat($"{Localizer["chat.Prefix"]}{Localizer["chat.PlayedSong", _lastPlayedTrack.Name]}{NewLine}{Localizer["chat.Settings"]}");
             });
         }
+
+    public void OnTick()
+    {    
+        string gifUrl = Globals.SiteImage;
+
+        if (shouldShowImage)
+        {
+            foreach (CCSPlayerController player in Utilities.GetPlayers())
+            {
+                if (player != null && player.IsValid)
+                {
+                    player.PrintToCenterHtml($"<img src=\"{gifUrl}\">",10);
+                }   
+            }
+        }
+    }
         
         private async Task GetPlayerAsync(ResPlayer? resPlayer, long currentTime)
         {

@@ -4,7 +4,7 @@
   "menu.ListenLastPlayedSong": "Listen last played track",
   "chat.Prefix": "{DEFAULT}♪♪ ★ ASTRAL ★♪♪ {yellow}[Round End Sound] » ",
   "chat.Settings": "{default}ㅤㅤㅤㅤㅤㅤ» Music settings: - {green}!res",
-  "chat.PlayedSong": "{nextline}{default}Agora tocando essa música ★♪♪: {LIGHTPURPLE}{0}",
+  "chat.PlayedSong": "{default}Agora tocando essa música ★♪♪: {LIGHTPURPLE}{0}",
   "chat.Enabled": "{green}[Enabled]",
   "chat.Disabled": "{red}[Disabled]",
   "SoundEnabled": "Reproduzir som na rodada final",
