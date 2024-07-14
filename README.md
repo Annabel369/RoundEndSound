@@ -5,6 +5,10 @@ This version is customized with gif for two plugins so this is better for me who
 [music ID id=3244596709](https://steamcommunity.com/sharedfiles/filedetails/?id=3244596709)
 
 
+[MultiAddonManager] (https://github.com/Source2ZE/MultiAddonManager)
+
+       config music ID id=3244596709
+
 [![Github All Releases](https://img.shields.io/github/downloads/webpashtet/RoundEndSound/total.svg)]()
 
 **Support the author: [DonationAlerts](https://www.donationalerts.com/r/gleb_khlebov)**
